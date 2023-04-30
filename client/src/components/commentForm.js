@@ -30,7 +30,7 @@ export default function FeedBackForm() {
                 <h2 style={headerStyle}>Feedback Form</h2>
                     <Typography variant='caption' gutterBottom>Please fill in the details below.</Typography>
                 </Grid>
-                <form onSubmit={createApplication}>
+                <form >
                     <TextField style={marginTop} id="name" value={application.name} onChange={(e) => setApplication({...application, name: e.target.value })}
                         fullWidth label='Name' placeholder="Enter your name" />
                     <TextField style={marginTop} id="email" value={application.email} onChange={(e) => setApplication({ ...application,email: e.target.value })}
@@ -39,7 +39,7 @@ export default function FeedBackForm() {
                         fullWidth label='Phone Number' placeholder="Enter your phone number" />            
                     <TextField style={marginTop} id="comments" value={application.comment} onChange={(e) => setApplication({...application, comment: e.target.value })}
                         fullWidth label='comments' placeholder="Comments" />
-                    <Button type='submit' variant='contained' color='primary' style={marginTop}>Submit</Button>
+                    <Button type='submit' variant='contained' color='primary' style={marginTop} onClick={createApplication}>Submit</Button>
                 </form>
             </Paper>
         </Grid>

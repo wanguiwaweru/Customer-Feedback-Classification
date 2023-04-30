@@ -43,9 +43,10 @@ def create_comments(comment_request: CommentRequest, background_tasks: Backgroun
     comment.email = comment_request.email
     comment.phoneNumber = comment_request.phoneNumber
     comment.comment = comment_request.comment
-    background_tasks.add_task(comment_classification, comment, db)
+    
     db.add(comment)
     db.commit()
+    background_tasks.add_task(comment_classification, comment, db)
 
     return {
         "status_code": "200",
@@ -62,7 +63,7 @@ def get_comments(db: Session = Depends(get_db)):
 
 @app.delete("/comments/{id}")
 async def delete_comment(id, db: Session = Depends(get_db)):
-    comment = db.query(Comment).filter(Comment.id == id).first()  # Todo object
+    comment = db.query(Comment).filter(Comment.id == id).first()
     db.delete(comment)
     db.commit()
     return {"ok": True}

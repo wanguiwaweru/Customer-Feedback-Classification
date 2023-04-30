@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import TextField from '@mui/material/TextField';
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -23,10 +24,18 @@ export default function FeedBackList() {
             showApplicationList(allApplications.data);
         });
     }, []);
-
+    const [inputText, setInputText] = useState("");
+    let inputHandler = (e) => {
+    let lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+    console.log(inputText)
+  };
+  
+    
     return (
         <>
             <h1 style={{ margin:"20px 0 20px 50px" }}>All Comments</h1>
+            <TextField id="filled-search" label="Search field" type="search" variant="filled" value={inputText}onChange={inputHandler}/>
             <TableContainer component={Paper}>
                 <Table aria-label="simple table">
                     <TableHead>
@@ -56,8 +65,7 @@ export default function FeedBackList() {
                                 <TableCell align="center">{application.phoneNumber}</TableCell>
                                 <TableCell align="center">{application.comment} </TableCell>
                                 <TableCell align="center">{application.classification} </TableCell>
-                                <TableCell align="center" style={{ color: "blue", cursor: "pointer" }} onClick={() => deleteComment(application.id)} > Delete</TableCell>
-                                
+                                <TableCell align="center" style={{ color: "blue", cursor: "pointer" }} onClick={() => deleteComment(application.id)} > Delete</TableCell>        
                             </TableRow>
                         ))}
                     </TableBody>
