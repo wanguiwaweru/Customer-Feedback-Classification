@@ -4,7 +4,7 @@ from .database import SessionLocal, engine
 from .model import CommentRequest
 from fastapi.middleware.cors import CORSMiddleware
 from .models import Comment
-import .models
+import models
 from .classify import comment_classification
 
 app = FastAPI(title='Comment Classification API',)
