@@ -15,7 +15,7 @@ export default function FeedBackForm() {
 
     const createApplication= (event) => {
         event.preventDefault()
-        axios.post("http://localhost:8000/comments", application).then(() => {
+        axios.post("https://customerly-api.onrender.com/comments", application).then(() => {
             console.log(application)
             window.alert("Your request has been received. One of our representatives will contact you shortly.")
             window.location.reload(false);
