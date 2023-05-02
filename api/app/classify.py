@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 from sqlalchemy import text
-from models import Comment
-from model import CommentResponse
+from .models import Comment
+from .model import CommentResponse
 from sqlalchemy import create_engine
 import pymysql
 import os

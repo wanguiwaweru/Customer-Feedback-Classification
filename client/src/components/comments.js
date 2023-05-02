@@ -14,13 +14,13 @@ export default function FeedBackList() {
     const [applicationList, showApplicationList] = useState([]);
 
     const deleteComment = (id) => {
-        axios.delete(`http://localhost:8000/comments/${id}`).then(() => {
+        axios.delete(`https://customerly-api.onrender.com/comments/${id}`).then(() => {
             window.location.reload(false);
         })
     }
    
     useEffect(() => {
-        axios.get("http://localhost:8000/comments").then((allApplications) => {
+        axios.get("https://customerly-api.onrender.com/comments").then((allApplications) => {
             showApplicationList(allApplications.data);
         });
     }, []);
