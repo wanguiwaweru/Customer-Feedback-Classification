@@ -1,8 +1,8 @@
 import * as React from "react"
 import { Box, Typography } from "@mui/material"
 export default function HeroCenter({
-  decorative = "Banking Made Easy",
-  title = "Flexi Bank",
+  decorative = "Customer is King",
+  title = "Customerly",
   subtitle = "Voted best Customer service in 2022.",
 }) {
   return (
